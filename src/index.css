@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Unbounded", serif;
+}
+.hero {
+    background-image: url("../images/bg.png");
+    background-size: cover;
+    background-position: center center;
+}
+.glow {
+    box-shadow: 0px 0px 32px 13px #1cd64640;
+}
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(to bottom, #3c3b3b, #000 80%);
+    z-index: -1;
+    margin: -1px;
+}
+.gradient-border-sm::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: #fff;
+    /* background: linear-gradient(to bottom, #3c3b3b, #000 80%); */
+    z-index: -1;
+    margin: -1px;
+}
+
+.project-cards:hover img {
+    scale: 1.05;
+}
+.project-cards:hover span {
+    color: #9747ff;
+}
+.project-cards:hover svg path {
+    stroke: #9747ff;
+}
+
+#big-links a.active li {
+    border-bottom: 2px solid #9747ff;
+}
+
+#small-links a.active li {
+    color: #9747ff;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9747ff;
+    height: 3rem;
+}
+
