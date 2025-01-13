@@ -1,22 +1,26 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Glow from "../../components/Glow";
 import Button from "../../components/Button";
+import ProjectContext from "../../context/ProjectContext";
+import ProjectCard from "../../components/ProjectCard";
+import Spinner from "../../components/Spinner";
 
 const skills = [
     ["Version Control", "Git, GitHub"],
     ["CMS", "Web Accessibility, SEO best practices"],
     ["Languages", "HTML, CSS, JavaScript, TypeScript"],
-    ["Frameworks & Libraries", "React, Next.js, Vue.js, Tailwind CSS, Bootstrap"],
+    ["Frameworks & Libraries", "React, Next.js, Express.js, Tailwind CSS, Bootstrap"],
     ["Responsive Design", "Mobile-first development, Cross-browser compatibility"],
 ];
 
 const Index = () => {
     const [language, setLanguage] = useState("my");
-
+    const { featuredProjects, loading } = useContext(ProjectContext);
     const handleLanguageChange = (e) => {
         setLanguage(e.target.value);
     };
+
     return (
         <main className="w-full flex flex-col items-center">
             <div className="hero w-full flex justify-center">
@@ -49,66 +53,26 @@ const Index = () => {
                 </div>
                 <div className="lg:mt-28 mt-10 flex flex-col items-center w-full">
                     <h1 className="text-[#fff] font-semibold md:text-4xl text-2xl mb-6">PROJECTS</h1>
-                    <div className="relative gradient-border lg:w-[80%] w-[90%] rounded-[24px] lg:p-10 p-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 bg-[#000] mb-10">
-                        <div className="project-cards">
-                            <div className="rounded-[24px] overflow-hidden mb-4">
-                                <img src="/images/project.png" alt="" className="w-full h-full object-cover transition-all duration-500" />
-                            </div>
-                            <span className="text-[#fff] font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300">
-                                Safam Website
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        className="transition-all duration-300"
-                                        d="M1.34375 12.6575L12.6575 1.34375M12.6575 1.34375L4.17217 1.34383M12.6575 1.34375L12.6575 9.82911"
-                                        stroke="white"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </span>
-                        </div>
-                        <div className="project-cards">
-                            <div className="rounded-[24px] overflow-hidden mb-4">
-                                <img src="/images/project.png" alt="" className="w-full h-full object-cover transition-all duration-500" />
-                            </div>
-                            <span className="text-[#fff] font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300">
-                                Safam Website
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        className="transition-all duration-300"
-                                        d="M1.34375 12.6575L12.6575 1.34375M12.6575 1.34375L4.17217 1.34383M12.6575 1.34375L12.6575 9.82911"
-                                        stroke="white"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </span>
-                        </div>
-                        <div className="project-cards">
-                            <div className="rounded-[24px] overflow-hidden mb-4">
-                                <img src="/images/project.png" alt="" className="w-full h-full object-cover transition-all duration-500" />
-                            </div>
-                            <span className="text-[#fff] font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300">
-                                Safam Website
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        className="transition-all duration-300"
-                                        d="M1.34375 12.6575L12.6575 1.34375M12.6575 1.34375L4.17217 1.34383M12.6575 1.34375L12.6575 9.82911"
-                                        stroke="white"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </span>
-                        </div>
+
+                    <div className="w-full flex flex-col items-center justify-center">
+                        {loading ? (
+                            <Spinner loading={loading} />
+                        ) : (
+                            <>
+                                <div className="relative gradient-border lg:w-[80%] w-[90%] rounded-[24px] lg:p-10 p-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 bg-[#000] mb-10">
+                                    {featuredProjects.map((project) => (
+                                        <ProjectCard key={project.sys.id} project={project} />
+                                    ))}
+                                </div>
+
+                                {featuredProjects.length > 0 && (
+                                    <Link to="/projects" className="text-[#fff] font-medium text-sm inline-block rounded-[47px] py-3 px-5 bg-purple hover:rounded-[8px] transition-all">
+                                        See all projects
+                                    </Link>
+                                )}
+                            </>
+                        )}
                     </div>
-                    
-                    <Link to={'/projects'} className="text-[#fff] font-medium text-sm inline-block rounded-[47px] py-3 px-5 bg-purple hover:rounded-[8px] transition-all">
-                        See all projects
-                    </Link>
                 </div>
             </section>
             <section className="w-full flex flex-col items-center text-center lg:mt-40 mt-24">

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
 const NavBar = () => {
@@ -33,13 +33,13 @@ const NavBar = () => {
     }, [showSubMenu]);
     useEffect(() => {
         if (showSubMenu) {
-            document.body.style.overflow = "hidden"; // Disable scrolling
+            document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = ""; // Enable scrolling
+            document.body.style.overflow = ""; 
         }
 
         return () => {
-            document.body.style.overflow = ""; // Cleanup on unmount
+            document.body.style.overflow = "";
         };
     }, [showSubMenu]);
 
@@ -51,9 +51,9 @@ const NavBar = () => {
     return (
         <header className="w-full flex flex-col items-center justify-center absolute top-[0] z-[100] lg:py-10">
             <nav className="lg:w-[75%] w-[90%] flex items-center justify-between py-4">
-                <NavLink to={"/"}>
+                <Link to={"/"}>
                     <h1 className="text-white text-xl font-semibold">Pelumi A.</h1>
-                </NavLink>
+                </Link>
                 <ul id="big-links" className="hidden md:flex items-center gap-16">
                     <NavLink to={"/"}>
                         <li className="text-white font-medium text-lg p-2">Home</li>

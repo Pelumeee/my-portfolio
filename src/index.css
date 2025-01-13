@@ -65,3 +65,7 @@ body {
     height: 3rem;
 }
 
+.description__text::-webkit-scrollbar-thumb {
+    background: #3c3b3b;
+    height: 3rem;
+}
