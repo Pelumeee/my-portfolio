@@ -5,7 +5,9 @@ const Index = () => {
                 <h1 className="text-purple font-semibold md:text-7xl text-4xl leading-[90px]">About</h1>
                 <p className="text-[#fff] md:text-xl text-lg md:mt-6">Hey,👋🏻 it’s nice to meet you!</p>
                 <div className="w-full flex justify-center py-16">
-                    <div className="xl:w-[500px] md:w-[400px] w-[350px] xl:h-[500px] md:h-[400px] h-[350px] rounded-[50%] bg-[#fff] border border-[#000]"></div>
+                    <div className="xl:w-[400px] md:w-[400px] w-[350px] xl:h-[400px] md:h-[400px] h-[350px] rounded-[50%] bg-[#fff] overflow-hidden">
+                        <img src="/images/myPicture.png" alt="" className="w-full h-full object-cover" />
+                    </div>
                 </div>
                 <div className="flex flex-col items-center lg:mt-24 mt-10">
                     <div className="relative gradient-border rounded-[24px] md:p-10 p-6 grid md:grid-cols-2 grid-cols-1 gap-10 bg-[#000] mb-10">

@@ -1,13 +1,15 @@
 const ProjectCard = ({ project }) => {
     return (
         <div className="project-cards h-full">
-            <div className="relative rounded-[24px] overflow-hidden mb-4 h-full">
-                <img src={project.fields.image.fields.file.url} alt="" className="w-full h-full object-cover transition-all duration-500" />
-                <div className="description__text absolute w-full h-[15%] flex items-center justify-between bg-[#000000dd] bottom-0 md:py-6 py-2 md:px-6 px-4 text-white text-left overflow-y-scroll">
-                    <p className="md:text text-xs  leading-7 max-w-[30rem]">{project.fields.description}</p>
+            <div className="relative flex flex-col gap-4 overflow-hidden">
+                <div className="h-[20rem] overflow-hidden rounded-[24px]">
+                    <img src={project.fields.image.fields.file.url} alt="" className="w-full h-full object-cover transition-all duration-500" />
+                </div>
+                <div className="description__text w-full h-[4rem] px-5 py-3 flex items-start bg-[#000000dd] text-white text-left overflow-y-auto">
+                    <p className="text-xs">{project.fields.description}</p>
                 </div>
             </div>
-            <span className="text-[#fff] font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300">
+            <span className="text-[#fff] font-medium text-sm flex items-center justify-center gap-2 transition-all duration-300 mt-4">
                 <a href={project.fields.link} target="_blank">
                     {project.fields.name}
                 </a>

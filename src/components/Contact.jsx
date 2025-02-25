@@ -18,7 +18,7 @@ const Contact = () => {
                             />
                         </svg>
                     </a>
-                    <a href="" className="flex items-center gap-3 text-[#fff] font-medium text-sm rounded-[47px] py-3 px-5 border border-purple hover:rounded-[8px] transition-all">
+                    <a target="_blank" href="https://www.linkedin.com/in/oluwapelumi-ajayi-0b85a432a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="flex items-center gap-3 text-[#fff] font-medium text-sm rounded-[47px] py-3 px-5 border border-purple hover:rounded-[8px] transition-all">
                         LinkedIn
                     </a>
                 </div>

@@ -24,9 +24,11 @@ const Index = () => {
     return (
         <main className="w-full flex flex-col items-center">
             <div className="hero w-full flex justify-center">
-                <div className="lg:w-[70%] w-[90%] lg:min-h-[90vh] flex lg:flex-row flex-col items-center justify-between py-24 gap-16">
+                <div className="lg:w-[65%] w-[90%] max-w-[1440px] lg:min-h-[90vh] flex lg:flex-row flex-col items-center justify-between py-24 gap-16">
                     <div className="flex justify-center pt-10">
-                        <div className="xl:w-[500px] md:w-[400px] w-[350px] xl:h-[500px] md:h-[400px] h-[350px] rounded-[50%] bg-[#fff] border border-[#000]"></div>
+                        <div className="xl:w-[400px] md:w-[400px] w-[350px] xl:h-[400px] md:h-[400px] h-[350px] rounded-[50%] bg-[#fff] overflow-hidden">
+                            <img src="/images/myPicture.png" alt="" className="w-full h-full object-cover"/>
+                        </div>
                     </div>
                     <div className="lg:text-left text-center">
                         <h1 className="2xl:text-4xl xl:text-3xl text-2xl font-bold 2xl:leading-10 xl:leading-9 leading-8 text-purple">Frontend Developer</h1>
